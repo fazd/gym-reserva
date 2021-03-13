@@ -1,0 +1,54 @@
+services:
+  smart-fit-ui:
+    image: smart-fit-ui
+    build:
+      context: frontend
+      extra_hosts:
+        - localhost:0.0.0.0
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /opt/smart-fit-ui
+    links:
+      - smart-fit-server
+    ports:
+      - 80:3000
+    entrypoint:
+      - yarn
+      - start
+    networks:
+      - smart-fit-network
+
+  smart-fit-server:
+    image: smart-fit-server
+    build:
+      context: backend
+    ports:
+      - 8080:8080
+    entrypoint:
+      - uvicorn
+      - wsgi:app
+      - --reload
+      - --host
+      - 0.0.0.0
+      - --port
+      - '8080'
+    environment: 
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    links:
+      - redis
+    volumes:
+      - type: bind
+        source: ./backend/src
+        target: /opt/smart-fit-server
+    networks:
+      - smart-fit-network
+
+  redis:
+    image: redis
+    networks:
+      - smart-fit-network
+
+networks:
+  smart-fit-network:

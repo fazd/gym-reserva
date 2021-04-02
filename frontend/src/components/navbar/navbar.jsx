@@ -21,7 +21,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="categories">
-        <Link to="/" className="category">
+        <Link to="/reservas" className="category">
           Mis reservas
         </Link>
         <Link to="/" className="category">

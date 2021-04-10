@@ -16,14 +16,14 @@ const Login = () => {
           <input type="password" id="password" />
         </div>
         <div className="terms">
-          <label class="check-container">
+          <label className="check-container">
             <input type="checkbox" />
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
-          <span class="highlighted-text">Acepto los terminos y condiciones</span>
+          <span className="highlighted-text">Acepto los terminos y condiciones</span>
         </div>
         <div className="btn-group">
-          <button type="button" class="btn">Ingresar</button>
+          <button type="button" className="btn">Ingresar</button>
         </div>
       </div>
     </div>

@@ -164,12 +164,14 @@
   background-color: #fb2113;
   &:hover {
     background-color: #c80d00;
+    cursor: pointer;
   }
 }
 .confirm {
   background-color: #20ae09;
   &:hover {
     background-color: #139000;
+    cursor: pointer;
   }
 }
 
@@ -188,7 +190,9 @@
 .btn-container {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   width: 100%;
+  height: 20vh;
   margin-top: auto;
 }
 
@@ -200,4 +204,9 @@
 
 .container {
   padding-bottom: 2rem;
+}
+
+.title-start {
+  color: #fbb813;
+  margin-bottom: 1.5rem;
 }

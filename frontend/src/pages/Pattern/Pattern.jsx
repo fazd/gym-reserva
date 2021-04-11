@@ -23,7 +23,6 @@ const Pattern = () => {
     S: true,
     D: false,
   });
-  const [checkSelected, setCheckSelected] = useState('');
   const [hour, setHour] = useState('7');
   const [sedes, setSedes] = useState([]);
   const [selectedSede, setSelectedSede] = useState('none');
@@ -131,7 +130,7 @@ const Pattern = () => {
     <div className="main-page">
       <Navbar />
       <div className="container mt-3">
-        <h2 className="title">Reservar entrenamiento</h2>
+        <h2 className="title-start">Reservar entrenamiento</h2>
         <div className="space-between">
           <span>Hola {user.name}</span>
           <span>Cedula: {user.cedula}</span>

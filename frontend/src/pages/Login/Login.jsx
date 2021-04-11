@@ -8,11 +8,11 @@ const Login = () => {
       <h2>Reserva tu gym</h2>
       <div className="container">
         <div className="input-container">
-          <label for="CC">Documento de indentidad</label>
+          <label htmlFor="CC">Documento de indentidad</label>
           <input type="text" id="CC" />
         </div>
         <div className="input-container">
-          <label for="password" >Contraseña</label>
+          <label htmlFor="password" >Contraseña</label>
           <input type="password" id="password" />
         </div>
         <div className="terms">

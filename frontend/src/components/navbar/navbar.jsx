@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Logo from '../../assets/Logo.png';
 import Logout from '../../assets/logout.svg';
@@ -17,28 +17,31 @@ const Navbar = () => {
     <div className="navbar-main-container center">
       <div className="logo">
         <Link to="/">
-          <img src={Logo} on alt="logo" />
+          <img src={Logo} alt="logo" />
         </Link>
       </div>
       <div className="categories">
         <Link to="/reservas" className="category">
           Mis reservas
         </Link>
-        <Link to="/" className="category">
+        <Link to="/patron" className="category">
+          Mis frecuencias
+        </Link>
+        <Link to="/patron/nuevo" className="category">
           Programar reserva
         </Link>
       </div>
       <div className="logout">
         <span
-          onMouseEnter={ () => setLogout(LogoutOnHover)}
-          onMouseLeave={ () => setLogout(Logout)}
+          onMouseEnter={() => setLogout(LogoutOnHover)}
+          onMouseLeave={() => setLogout(Logout)}
           onClick={handlelogout}
         >Salir</span>
-        <img 
-          src={logout} 
+        <img
+          src={logout}
           alt="Logout"
-          onMouseEnter={ () => setLogout(LogoutOnHover)}
-          onMouseLeave={ () => setLogout(Logout)}
+          onMouseEnter={() => setLogout(LogoutOnHover)}
+          onMouseLeave={() => setLogout(Logout)}
           onClick={handlelogout}
         />
       </div>

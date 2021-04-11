@@ -46,9 +46,9 @@ const auth = (req, res, next) => {
 
 const me = (req, res, next) => {
   const { decoded = {}, params = {} } = req;
-  const { _id } = decoded;
+  const decodedId = decoded.id;
   const { id } = params;
-  if (_id !== id) {
+  if (decodedId !== id) {
     const message = 'Forbidden';
 
     next({
@@ -64,9 +64,14 @@ const me = (req, res, next) => {
 
 const owner = (req, res, next) => {
   const { decoded = {}, doc = {} } = req;
-  const { _id } = decoded;
+  const decodedId = decoded.id;
   const { id } = doc.userId;
-  if (_id !== id) {
+  console.log('**************');
+  console.log(decodedId);
+  console.log(id);
+  console.log(decodedId !== id);
+  console.log('**************');
+  if (decodedId !== id) {
     const message = 'Forbidden';
 
     next({

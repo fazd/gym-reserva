@@ -45,7 +45,7 @@ exports.signin = async (req, res, next) => {
     if (response.statusCode === 200) {
       const data = JSON.parse(response.body);
       const smartToken = data.auth_token;
-      const token = signToken({ smartToken });
+      const token = signToken({ smartToken, id: user.id });
       return res.json({
         success: true,
         meta: {
@@ -58,54 +58,5 @@ exports.signin = async (req, res, next) => {
     });
   } catch (error) {
     return next(new Error(error));
-  }
-};
-
-exports.id = async (req, res, next, id) => {
-  try {
-    const doc = await (await Model.findById(id)).exec();
-    if (!doc) {
-      const message = `${Model.modelName} not found`;
-      next({
-        message,
-        statusCode: 404,
-        level: 'warn',
-      });
-    } else {
-      req.doc = doc;
-      next();
-    }
-  } catch (error) {
-    next(new Error(error));
-  }
-};
-
-exports.create = async (req, res, next) => {
-  const { body = {} } = req;
-  const document = new Model(body);
-
-  try {
-    const doc = await document.save();
-    res.status(201);
-    res.json({
-      sucess: true,
-      data: doc,
-    });
-  } catch (error) {
-    next(new Error(error));
-  }
-};
-
-exports.delete = async (req, res, next) => {
-  const { doc = {} } = req;
-
-  try {
-    const removed = await doc.remove();
-    res.json({
-      sucess: true,
-      data: removed,
-    });
-  } catch (error) {
-    next(new Error(error));
   }
 };

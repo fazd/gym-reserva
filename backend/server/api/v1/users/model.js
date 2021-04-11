@@ -10,6 +10,7 @@ const fields = {
     required: true,
     trim: true,
     maxlength: 64,
+    unique: true,
   },
 };
 
